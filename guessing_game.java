@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class guessing_game {
-
+    static Scanner sc = new Scanner(System.in);
     private int oNum;
     private int count = 0;
 
@@ -14,6 +14,7 @@ public class guessing_game {
     private int random_num() {
         Random random = new Random();
         int num = random.nextInt(100);
+        System.out.print(num);
         return num;
     }
 
@@ -48,7 +49,7 @@ public class guessing_game {
         System.out.println("Welcome to Guesing Game!!\n");
         System.out.println("We have created a random number between 1 and 100, Your task is to guess the number.\n");
         System.out.println("Please Wait while we Start.....");
-        sleep(7000);
+        sleep(4000);
         clear();
         play();
         ;
@@ -57,7 +58,6 @@ public class guessing_game {
     public void play() {
         oNum = random_num();
         int num = 0;
-        Scanner sc = new Scanner(System.in);
         while (num != oNum) {
             System.out.println("\nGuess the number...");
             num = sc.nextInt();
@@ -71,25 +71,9 @@ public class guessing_game {
         System.out.println("The number is: " + oNum);
     }
 
-    public static boolean replay_check() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("\nWant to play again??\n Enter 1, otherwise Enter 0 --> ");
-        int choice = sc.nextInt();
-        sc.close();
-        return (choice == 1);
-    }
 
     public static void main(String[] args) {
-
-        while (true) {
-            new guessing_game();
-            Scanner sc = new Scanner(System.in);
-            System.out.print("\nWant to play again??\n Enter 1, otherwise Enter 0 --> ");
-            int val = sc.nextInt();
-            if (val == 0) {
-                sc.close();
-                break;
-            }
-        }
+        new guessing_game();
+        sc.close();
     }
 }
